@@ -91,7 +91,7 @@ public class PlayerManager : MonoBehaviour
     public void EnterMiniGame()
     {
         // You can add code here to handle scene transition to the minigame
-        SceneManager.LoadScene("GhostBreaker");
+        SceneManager.LoadScene("Flappy Bird");
     }
 
     public void ExitMiniGame(int scoreGained)
