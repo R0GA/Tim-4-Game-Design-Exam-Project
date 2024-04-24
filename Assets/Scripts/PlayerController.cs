@@ -11,15 +11,32 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+  
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("Spot1");
+
+        if (other.CompareTag("House")) // Change key as needed
+        {
+            Debug.Log("Spot2");
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                PlayerManager.Instance.EnterMiniGame(); // Call method to switch to minigame
+            }
+        }
+    }
+
     private void Update()
     {
-        if (isActivePlayer)
+       /* if (isActivePlayer)
         {
             if (Input.GetKeyDown(KeyCode.Space)) // Change key as needed
             {
                 InteractWithHouse();
             }
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -38,7 +55,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void InteractWithHouse()
+    /*private void InteractWithHouse()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1f); // Adjust radius as needed
         foreach (Collider2D collider in colliders)
@@ -52,7 +69,7 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 
     public void SetActivePlayer(bool active)
     {

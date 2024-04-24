@@ -13,8 +13,8 @@ public class BallScript : MonoBehaviour
     private Vector2 startPosition;
     private int lives = 3;
     private bool ballMoving = false;
+    PlayerManager playerManager = PlayerManager.Instance;
 
-   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Brick"))
@@ -46,6 +46,11 @@ public class BallScript : MonoBehaviour
             SetRandomTrajectory();
         }
 
+        if(score == 40 || lives == 0)
+        {
+            playerManager.ExitMiniGame(score);
+        }
+
     }
 
     private void SetRandomTrajectory()
@@ -57,5 +62,7 @@ public class BallScript : MonoBehaviour
 
         myRb.AddForce(force.normalized * speed);
     }
+
+    
 
 }
