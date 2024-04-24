@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
+        playerManager = PlayerManager.Instance;
+
         player1TextObject = GameObject.FindWithTag("P1TXT");
         player1Text = player1TextObject.GetComponent<Text>();
         player2TextObject = GameObject.FindWithTag("P2TXT");
@@ -22,6 +24,7 @@ public class UIManager : MonoBehaviour
 
 
     }
+
 
     // Update is called once per frame
     void Update()
