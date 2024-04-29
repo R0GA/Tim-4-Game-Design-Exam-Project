@@ -6,37 +6,61 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isActivePlayer = false; // Track if this player is active
 
+    private House currentHouse;
+
+    [SerializeField]
+    private KeyCode interactWithHouse = KeyCode.Space;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-  
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var house = collision.gameObject.GetComponent<House>();
+        if (house != null)
+        {
+            Debug.Log($"House {house}");
+            /*if (Input.GetKey(KeyCode.Space))
+            {
+                PlayerManager.Instance.EnterMiniGame(); // Call method to switch to minigame
+            }*/
+            currentHouse = house;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var house = collision.gameObject.GetComponent<House>();
+        if (house != null)
+        {
+            currentHouse = null;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Spot1");
-
-        if (other.CompareTag("House")) // Change key as needed
+        /*var house = other.gameObject.GetComponent<House>();
+        if (house != null)
         {
-            Debug.Log("Spot2");
-
+            Debug.Log($"House {house}");
             if (Input.GetKey(KeyCode.Space))
             {
                 PlayerManager.Instance.EnterMiniGame(); // Call method to switch to minigame
             }
-        }
+        }*/
     }
 
     private void Update()
     {
-       /* if (isActivePlayer)
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) // Change key as needed
+       if ( currentHouse != null )
+       {
+            if (Input.GetKey(interactWithHouse))
             {
-                InteractWithHouse();
+                PlayerManager.Instance.EnterMiniGame(currentHouse);
             }
-        }*/
+        }
     }
 
     private void FixedUpdate()

@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to scene loaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         // Find and assign player objects when the scene is loaded
         player1 = GameObject.FindGameObjectWithTag("Player1");
@@ -62,46 +62,51 @@ public class PlayerManager : MonoBehaviour
 
     public void SetActivePlayer(GameObject player)
     {
-
-        Debug.Log("Called");
-
         if (player != null)
         {
-
-            Debug.Log("Called1");
 
             player.GetComponent<PlayerController>().SetActivePlayer(true);
             if (player == player1)
             {
-
-                Debug.Log("Called2");
 
                 player2.GetComponent<PlayerController>().SetActivePlayer(false);
             }
             else
             {
 
-                Debug.Log("Called3");
+                
 
                 player1.GetComponent<PlayerController>().SetActivePlayer(false);
             }
         }
     }
 
-    public void EnterMiniGame()
+    public void EnterMiniGame(House house)
     {
-
-        int ran = Random.Range(0, 100);
-
-        Debug.Log(ran);
-
-        if(ran%2 == 0)
+        if (house.MiniGame != MiniGame.Nothing)
         {
-            SceneManager.LoadScene("Flappy Bird");
+            switch (house.MiniGame)
+            {
+                case MiniGame.Brickbreaker:
+                    break;
+                case MiniGame.FlappyBird:
+                    SceneManager.LoadScene("Flappy Bird");
+                    break;
+                case MiniGame.SpaceInvaders:
+                    break;
+            }
         }
         else
         {
-            SceneManager.LoadScene("GhostBreaker");
+            int ran = Random.Range(0, 100);
+            if (ran % 2 == 0)
+            {
+                SceneManager.LoadScene("Flappy Bird");
+            }
+            else
+            {
+                SceneManager.LoadScene("GhostBreaker");
+            }
         }
     }
 
@@ -128,7 +133,7 @@ public class PlayerManager : MonoBehaviour
             SetActivePlayer(player2);
         }
 
-        // You can add code here to handle scene transition back to the main scene
+       
         SceneManager.LoadScene("MainScene");
     }
 }

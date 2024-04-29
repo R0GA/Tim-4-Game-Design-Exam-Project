@@ -50,15 +50,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-            playerObject = GameObject.FindGameObjectWithTag("Player");
+            /*playerObject = GameObject.FindGameObjectWithTag("Player");
             player = playerObject.GetComponent<Player>();
             spawnerObject = GameObject.FindGameObjectWithTag("Spawner");
             spawner = spawnerObject.GetComponent<Spawner>();
             scoreTextObject = GameObject.FindGameObjectWithTag("ScoreText");
             scoreText = scoreTextObject.GetComponent<Text>();
             playButton = GameObject.FindGameObjectWithTag("PlayButton");
-            gameOver = GameObject.FindGameObjectWithTag("GameOver");
+            gameOver = GameObject.FindGameObjectWithTag("GameOver");*/
 
+            // TODO: Tim asks why you are setting the frame rate over, this appears
+            // to be superfluous
             Application.targetFrameRate = 60;
            
             Pause();
@@ -79,6 +81,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         player.enabled = true;
 
+        // TODO: Tim asks why there is not a pipemanager, instead of putting this in the game manager
         Pipes[] pipes = FindObjectsOfType<Pipes>();
 
         for (int i = 0; i < pipes.Length; i++) {

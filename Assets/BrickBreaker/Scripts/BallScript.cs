@@ -60,7 +60,7 @@ public class BallScript : MonoBehaviour
         force.x = Random.Range(-0.5f, 0.5f);
         force.y = -1;
 
-        myRb.AddForce(force.normalized * speed);
+        myRb.velocity = (force.normalized * speed);
     }
 
     

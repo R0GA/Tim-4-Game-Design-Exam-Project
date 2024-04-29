@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 149568775}
   - component: {fileID: 149568774}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: SceneManager
   m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,11 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae79f9d99372a6b438f800230f434b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawner: {fileID: 0}
-  scoreText: {fileID: 0}
-  playButton: {fileID: 0}
-  gameOver: {fileID: 0}
+  player: {fileID: 527830928}
+  spawner: {fileID: 2105631072}
+  scoreText: {fileID: 1474871343}
+  playButton: {fileID: 892178073}
+  gameOver: {fileID: 298509898}
 --- !u!4 &149568775
 Transform:
   m_ObjectHideFlags: 0

@@ -425,6 +425,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125040657}
   m_CullTransparentMesh: 1
+--- !u!1 &128263878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4199129363478506438, guid: 0a4fe1020be202247bf772a41e60f45f,
+    type: 3}
+  m_PrefabInstance: {fileID: 379670838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205539854
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +742,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4199129363478506438, guid: 0a4fe1020be202247bf772a41e60f45f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 379670842}
   m_SourcePrefab: {fileID: 100100000, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
 --- !u!4 &379670839 stripped
 Transform:
@@ -744,6 +754,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 379670838}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &379670842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128263878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8251d6802703a254491c62cc904dcfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniGame: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  interactWithHouse: 32
 --- !u!50 &1327118969
 Rigidbody2D:
   serializedVersion: 4
@@ -2090,6 +2114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  interactWithHouse: 32
 --- !u!50 &1824767782
 Rigidbody2D:
   serializedVersion: 4
