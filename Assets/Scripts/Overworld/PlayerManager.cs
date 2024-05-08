@@ -85,6 +85,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (house.MiniGame != MiniGame.Nothing)
         {
+
             switch (house.MiniGame)
             {
                 case MiniGame.Brickbreaker:
@@ -98,9 +99,29 @@ public class PlayerManager : MonoBehaviour
                 case MiniGame.Snake:
                     SceneManager.LoadScene("Snake");
                     break;
+                case MiniGame.Random:
+                    int ran = Random.Range(1, 5);
+                    Debug.Log(ran);
+                    if (ran == 1)
+                    {
+                        SceneManager.LoadScene("GhostBreaker");
+                    }
+                    else if (ran == 2)
+                    {
+                        SceneManager.LoadScene("Flappy Bird");
+                    }
+                    else if (ran == 3)
+                    {
+                        Debug.Log("Space Invaders");
+                    }
+                    else if (ran == 4)
+                    {
+                        SceneManager.LoadScene("Snake");
+                    }
+                    break;
             }
         }
-        else
+        /*else
         {
             int ran = Random.Range(0, 100);
             if (ran % 2 == 0)
@@ -111,7 +132,7 @@ public class PlayerManager : MonoBehaviour
             {
                 SceneManager.LoadScene("GhostBreaker");
             }
-        }
+        }*/
     }
 
     public void ExitMiniGame(int scoreGained)
