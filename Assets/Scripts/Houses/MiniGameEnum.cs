@@ -6,5 +6,6 @@ public enum MiniGame
     Nothing,
     Brickbreaker,
     FlappyBird,
-    SpaceInvaders
+    SpaceInvaders,
+    Snake
 }

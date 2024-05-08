@@ -88,11 +88,15 @@ public class PlayerManager : MonoBehaviour
             switch (house.MiniGame)
             {
                 case MiniGame.Brickbreaker:
+                    SceneManager.LoadScene("GhostBreaker");
                     break;
                 case MiniGame.FlappyBird:
                     SceneManager.LoadScene("Flappy Bird");
                     break;
                 case MiniGame.SpaceInvaders:
+                    break;
+                case MiniGame.Snake:
+                    SceneManager.LoadScene("Snake");
                     break;
             }
         }

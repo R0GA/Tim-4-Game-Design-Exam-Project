@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Obstacle
-  - Scoring
-  - Brick
-  - Player1
-  - Player2
-  - House
-  - Spawner
-  - ScoreText
-  - PlayButton
-  - GameOver
-  - GameManager
-  - P1TXT
-  - P2TXT
+  tags: []
   layers:
   - Default
   - TransparentFX

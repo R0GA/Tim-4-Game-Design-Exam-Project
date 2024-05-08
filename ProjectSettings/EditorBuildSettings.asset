@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: b508989ca290f7d4999b77190d6a29d3
-  - enabled: 1
-    path: Assets/Scenes/Flappy Bird.unity
+    path: Assets/Scenes/Snake.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/GhostBreaker.unity
-    guid: 09c4690424871f144aef30c112ad6c14
   m_configObjects: {}
