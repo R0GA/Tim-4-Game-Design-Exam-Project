@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: b508989ca290f7d4999b77190d6a29d3
   - enabled: 1
+    path: Assets/Scenes/GhostBomber.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/Flappy Bird.unity
     guid: 311b1b289d49eda4f90ca8ba36f33546
   - enabled: 1
@@ -16,5 +19,5 @@ EditorBuildSettings:
     guid: 09c4690424871f144aef30c112ad6c14
   - enabled: 1
     path: Assets/Scenes/Snake.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 3863629bf7bc1a84fb4d2dc7a436f03c
   m_configObjects: {}

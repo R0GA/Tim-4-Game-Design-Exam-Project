@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: a3705727f0e65cb4c90c937a0c1fbf79
+  productGUID: 97b60093b962f334dad1c3a81f7d6093
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: SNAKE_GHOST GAME
+  productName: Bomberman
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -629,14 +629,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: SNAKE_GHOST GAME
+  metroPackageName: Bomberman
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: SNAKE_GHOST GAME
+  metroApplicationDescription: Bomberman
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -704,11 +704,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 163d3065-2efb-4e75-adc2-1e6168460fb8
+  cloudProjectId: 9386bfe5-0a74-4c84-84fa-18275208f5e5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SNAKE_GHOST GAME
-  organizationId: badassbarbie
+  projectName: Bomberman
+  organizationId: jaxsib
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
