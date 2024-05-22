@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,10 +8,21 @@ public class PlayerManager : MonoBehaviour
 
     public int player1Score = 0;
     public int player2Score = 0;
+    public int currentPlayer = 1; // Player 1 starts
+    public GameObject buyCanvas;
 
-    private int currentPlayer = 1; // Player 1 starts
     private GameObject player1;
     private GameObject player2;
+    private GameObject currentBollard;
+    [SerializeField]
+    private GameObject bollard1;
+    [SerializeField] 
+    private GameObject bollard2;
+    [SerializeField]
+    private GameObject bollard3;
+    private bool b1Bought = false;
+    private bool b2Bought = false;
+    private bool b3Bought = false;
 
     private void Awake()
     {
@@ -32,6 +44,11 @@ public class PlayerManager : MonoBehaviour
         // Find and assign player objects when the scene is loaded
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+        bollard1 = GameObject.FindGameObjectWithTag("Bollard1");
+        bollard2 = GameObject.FindGameObjectWithTag("Bollard2");
+        bollard3 = GameObject.FindGameObjectWithTag("Bollard3");
+        buyCanvas = GameObject.FindGameObjectWithTag("BuyCanvas");
+        buyCanvas.gameObject.SetActive(false);
 
         if (currentPlayer == 1)
         {
@@ -40,6 +57,19 @@ public class PlayerManager : MonoBehaviour
         else
         {
             SetActivePlayer(player2);
+        }
+
+        if (b1Bought)
+        {
+            Destroy(bollard1);
+        }
+        else if (b2Bought)
+        {
+            Destroy(bollard2);
+        }
+        else if (b3Bought)
+        {
+            Destroy(bollard3);
         }
 
     }
@@ -49,6 +79,14 @@ public class PlayerManager : MonoBehaviour
         // Find and assign player objects when the scene is loaded
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+        bollard1 = GameObject.FindGameObjectWithTag("Bollard1");
+        bollard2 = GameObject.FindGameObjectWithTag("Bollard2");
+        bollard3 = GameObject.FindGameObjectWithTag("Bollard3");
+        buyCanvas = GameObject.FindGameObjectWithTag("BuyCanvas");
+
+        if (buyCanvas != null)
+        buyCanvas.gameObject.SetActive(false);
+
 
         if (currentPlayer == 1)
         {
@@ -58,6 +96,20 @@ public class PlayerManager : MonoBehaviour
         {
             SetActivePlayer(player2);
         }
+
+        if (b1Bought)
+        {
+            Destroy(bollard1);
+        }
+        else if (b2Bought)
+        {
+            Destroy(bollard2);
+        }
+        else if (b3Bought)
+        {
+            Destroy(bollard3);
+        }
+
     }
 
     public void SetActivePlayer(GameObject player)
@@ -68,15 +120,13 @@ public class PlayerManager : MonoBehaviour
             player.GetComponent<PlayerController>().SetActivePlayer(true);
             if (player == player1)
             {
-
                 player2.GetComponent<PlayerController>().SetActivePlayer(false);
+                currentPlayer = 1;
             }
             else
             {
-
-                
-
                 player1.GetComponent<PlayerController>().SetActivePlayer(false);
+                currentPlayer = 2;
             }
         }
     }
@@ -160,5 +210,68 @@ public class PlayerManager : MonoBehaviour
 
        
         SceneManager.LoadScene("MainScene");
+   }
+
+    public void TryBuy()
+    {
+        if(currentPlayer == 1)
+        {
+
+            if(player1Score >= 20)
+            {
+                if(currentBollard == bollard1)
+                {
+                    b1Bought = true;
+                }
+                else if(currentBollard == bollard2)
+                {
+                    b2Bought = true;
+                }
+                else if(currentBollard == bollard3)
+                {
+                    b3Bought = true;
+                }
+                
+                player1Score = player1Score - 20;
+                Destroy(currentBollard);
+                buyCanvas.gameObject.SetActive(false);
+            }
+
+        }
+        else if (currentPlayer == 2)
+        {
+
+            if (player2Score >= 20)
+            {
+                if (currentBollard == bollard1)
+                {
+                    b1Bought = true;
+                }
+                else if (currentBollard == bollard2)
+                {
+                    b2Bought = true;
+                }
+                else if (currentBollard == bollard3)
+                {
+                    b3Bought = true;
+                }
+                player2Score = player2Score - 20;
+                Destroy(currentBollard);
+                buyCanvas.gameObject.SetActive(false);
+            }
+
+        }
+
     }
+
+    public void OpenBuyUI(GameObject bol)
+    {
+        buyCanvas.gameObject.SetActive(true);
+        currentBollard = bol;
+    }
+    public void CloseBuyUI()
+    {
+        buyCanvas.gameObject.SetActive(false);
+    }
+
 }
