@@ -3562,7 +3562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7cf23fc49d696488f3d10805b20941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Score: 20
+  player1Score: 0
   player2Score: 0
   currentPlayer: 1
   buyCanvas: {fileID: 0}
