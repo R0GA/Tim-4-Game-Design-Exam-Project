@@ -1231,9 +1231,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2050426941}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: CloseBuyUI
+      - m_Target: {fileID: 2072072741}
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2151,10 +2151,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bollard (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
-      propertyPath: m_TagString
-      value: Bollard3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2243,9 +2239,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2050426941}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: TryBuy
+      - m_Target: {fileID: 2072072741}
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2569,7 +2565,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -2589,7 +2585,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -3109,7 +3105,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -3129,7 +3125,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -3569,6 +3565,21 @@ MonoBehaviour:
   bollard1: {fileID: 0}
   bollard2: {fileID: 0}
   bollard3: {fileID: 0}
+  p1B1Coll: {fileID: 0}
+  p1B2Coll: {fileID: 0}
+  p1B3Coll: {fileID: 0}
+  p2B1Coll: {fileID: 0}
+  p2B2Coll: {fileID: 0}
+  p2B3Coll: {fileID: 0}
+  b1Bought: 0
+  b2Bought: 0
+  b3Bought: 0
+  p1B1Bought: 0
+  p1B2Bought: 0
+  p1B3Bought: 0
+  p2B1Bought: 0
+  p2B2Bought: 0
+  p2B3Bought: 0
 --- !u!4 &2050426942
 Transform:
   m_ObjectHideFlags: 0
@@ -3593,6 +3604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2072072740}
+  - component: {fileID: 2072072741}
   m_Layer: 0
   m_Name: Bollards
   m_TagString: Untagged
@@ -3618,6 +3630,18 @@ Transform:
   - {fileID: 677636582}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072072741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072072739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46caee5c7a41394a98b1e7c8103a6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6010206708876780276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3669,6 +3693,10 @@ PrefabInstance:
     - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_Name
       value: Bollard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
+      propertyPath: m_TagString
+      value: Bollard1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

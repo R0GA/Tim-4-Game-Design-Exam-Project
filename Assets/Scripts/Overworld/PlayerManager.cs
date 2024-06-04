@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,7 @@ public class PlayerManager : MonoBehaviour
 
     private GameObject player1;
     private GameObject player2;
+
     private GameObject currentBollard;
     [SerializeField]
     private GameObject bollard1;
@@ -20,9 +22,39 @@ public class PlayerManager : MonoBehaviour
     private GameObject bollard2;
     [SerializeField]
     private GameObject bollard3;
+
+    [SerializeField]
+    private Component p1B1Coll;
+    [SerializeField]
+    private Component p1B2Coll;
+    [SerializeField]
+    private Component p1B3Coll;
+    [SerializeField]
+    private Component p2B1Coll;
+    [SerializeField]
+    private Component p2B2Coll;
+    [SerializeField]
+    private Component p2B3Coll;
+
+    [SerializeField]
     private bool b1Bought = false;
+    [SerializeField]
     private bool b2Bought = false;
+    [SerializeField]
     private bool b3Bought = false;
+    [SerializeField]
+    private bool p1B1Bought = false;
+    [SerializeField]
+    private bool p1B2Bought = false;
+    [SerializeField]
+    private bool p1B3Bought = false;
+    [SerializeField]
+    private bool p2B1Bought = false;
+    [SerializeField]
+    private bool p2B2Bought = false;
+    [SerializeField]
+    private bool p2B3Bought = false;
+
 
     private void Awake()
     {
@@ -48,7 +80,22 @@ public class PlayerManager : MonoBehaviour
         bollard2 = GameObject.FindGameObjectWithTag("Bollard2");
         bollard3 = GameObject.FindGameObjectWithTag("Bollard3");
         buyCanvas = GameObject.FindGameObjectWithTag("BuyCanvas");
-        buyCanvas.gameObject.SetActive(false);
+
+        if (bollard1 != null)
+            p1B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
+        if (bollard2 != null)
+            p1B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
+        if (bollard3 != null)
+            p1B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
+        if (bollard1 != null)
+            p2B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+        if (bollard2 != null)
+            p2B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+        if (bollard3 != null)
+            p2B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+
+        if (buyCanvas != null)
+            buyCanvas.gameObject.SetActive(false);
 
         if (currentPlayer == 1)
         {
@@ -59,19 +106,65 @@ public class PlayerManager : MonoBehaviour
             SetActivePlayer(player2);
         }
 
-        if (b1Bought)
+        for (int i = 0; i < 3; i++)
         {
-            Destroy(bollard1);
-        }
-        else if (b2Bought)
-        {
-            Destroy(bollard2);
-        }
-        else if (b3Bought)
-        {
-            Destroy(bollard3);
+            if (i == 0 && p1B1Bought && p2B1Bought)
+            {
+                b1Bought = true;
+            }
+            else if (i == 2 && p1B2Bought && p2B2Bought)
+            {
+                b2Bought = true;
+            }
+            else if (i == 3 && p1B3Bought && p2B3Bought)
+            {
+                b3Bought = true;
+            }
         }
 
+        for (int i = 0; i < 6; i++)
+        {
+            if (i == 0 && p1B1Bought && bollard1 != null)
+            {
+                Destroy(p1B1Coll.gameObject);
+            }
+            else if (i == 1 && p1B2Bought && bollard2 != null)
+            {
+                Destroy(p1B2Coll.gameObject);
+            }
+            else if (i == 2 && p1B3Bought && bollard3 != null)
+            {
+                Destroy(p1B3Coll.gameObject);
+            }
+            else if (i == 3 && p2B1Bought && bollard1 != null)
+            {
+                Destroy(p2B1Coll.gameObject);
+            }
+            else if (i == 4 && p2B2Bought && bollard2 != null)
+            {
+                Destroy(p2B2Coll.gameObject);
+            }
+            else if (i == 5 && p2B3Bought && bollard3 != null)
+            {
+                Destroy(p2B3Coll.gameObject);
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (i == 0 && b1Bought)
+            {
+                Destroy(bollard1);
+            }
+            else if (i == 1 && b2Bought)
+            {
+                Destroy(bollard2);
+            }
+            else if (i == 2 && b3Bought)
+            {
+                Destroy(bollard3);
+            }
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -84,9 +177,21 @@ public class PlayerManager : MonoBehaviour
         bollard3 = GameObject.FindGameObjectWithTag("Bollard3");
         buyCanvas = GameObject.FindGameObjectWithTag("BuyCanvas");
 
-        if (buyCanvas != null)
-        buyCanvas.gameObject.SetActive(false);
+        if(bollard1 != null)
+            p1B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
+        if(bollard2 != null)
+            p1B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
+        if(bollard3 != null)
+            p1B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
+        if (bollard1 != null)
+            p2B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+        if (bollard2 != null)
+            p2B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+        if (bollard3 != null)
+            p2B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
 
+        if (buyCanvas != null)
+            buyCanvas.gameObject.SetActive(false);
 
         if (currentPlayer == 1)
         {
@@ -97,20 +202,67 @@ public class PlayerManager : MonoBehaviour
             SetActivePlayer(player2);
         }
 
-        if (b1Bought)
+        for (int i = 0; i < 3; i++)
         {
-            Destroy(bollard1);
-        }
-        else if (b2Bought)
-        {
-            Destroy(bollard2);
-        }
-        else if (b3Bought)
-        {
-            Destroy(bollard3);
+            if (i == 0 && p1B1Bought && p2B1Bought)
+            {
+                b1Bought = true;
+            }
+            else if (i == 2 && p1B2Bought && p2B2Bought)
+            {
+                b2Bought = true;
+            }
+            else if (i == 3 && p1B3Bought && p2B3Bought)
+            {
+                b3Bought = true;
+            }
         }
 
+        for (int i = 0; i < 6; i++)
+        {
+            if (i == 0 && p1B1Bought && bollard1 != null)
+            {
+                Destroy(p1B1Coll.gameObject);
+            }
+            else if (i == 1 && p1B2Bought && bollard2 != null)
+            {
+                Destroy(p1B2Coll.gameObject);
+            }
+            else if (i == 2 && p1B3Bought && bollard3 != null)
+            {
+                Destroy(p1B3Coll.gameObject);
+            }
+            else if (i == 3 && p2B1Bought && bollard1 != null)
+            {
+                Destroy(p2B1Coll.gameObject);
+            }
+            else if (i == 4 && p2B2Bought && bollard2 != null)
+            {
+                Destroy(p2B2Coll.gameObject);
+            }
+            else if (i == 5 && p2B3Bought && bollard3 != null)
+            {
+                Destroy(p2B3Coll.gameObject);
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (i == 0 && b1Bought)
+            {
+                Destroy(bollard1);
+            }
+            else if (i == 1 && b2Bought)
+            {
+                Destroy(bollard2);
+            }
+            else if (i == 2 && b3Bought)
+            {
+                Destroy(bollard3);
+            }
+        }
     }
+   
 
     public void SetActivePlayer(GameObject player)
     {
@@ -221,19 +373,22 @@ public class PlayerManager : MonoBehaviour
             {
                 if(currentBollard == bollard1)
                 {
-                    b1Bought = true;
+                    p1B1Bought = true;
+                    Destroy(p1B1Coll.gameObject);
                 }
                 else if(currentBollard == bollard2)
                 {
-                    b2Bought = true;
+                    p1B2Bought = true;
+                    Destroy(p1B2Coll.gameObject);
                 }
                 else if(currentBollard == bollard3)
                 {
-                    b3Bought = true;
+                    p1B3Bought = true;
+                    Destroy(p1B3Coll.gameObject);
                 }
                 
                 player1Score = player1Score - 20;
-                Destroy(currentBollard);
+                //Destroy(currentBollard);
                 buyCanvas.gameObject.SetActive(false);
             }
 
@@ -245,23 +400,40 @@ public class PlayerManager : MonoBehaviour
             {
                 if (currentBollard == bollard1)
                 {
-                    b1Bought = true;
+                    p2B1Bought = true;
+                    Destroy(p2B1Coll.gameObject);
                 }
                 else if (currentBollard == bollard2)
                 {
-                    b2Bought = true;
+                    p2B2Bought = true;
+                    Destroy(p2B2Coll.gameObject);
                 }
                 else if (currentBollard == bollard3)
                 {
-                    b3Bought = true;
+                    p2B3Bought = true;
+                    Destroy(p2B3Coll.gameObject);
                 }
                 player2Score = player2Score - 20;
-                Destroy(currentBollard);
+                //Destroy(currentBollard);
                 buyCanvas.gameObject.SetActive(false);
             }
 
         }
 
+        if (p1B1Bought && p2B1Bought)
+            b1Bought = true;
+        if (p1B2Bought && p2B2Bought)
+            b2Bought = true;
+        if (p1B3Bought && p2B3Bought)
+            b3Bought = true;
+
+        if (b1Bought)
+            Destroy(bollard1);
+        if (b2Bought)
+            Destroy(bollard2);
+        if (b3Bought)
+            Destroy(bollard3);
+        
     }
 
     public void OpenBuyUI(GameObject bol)

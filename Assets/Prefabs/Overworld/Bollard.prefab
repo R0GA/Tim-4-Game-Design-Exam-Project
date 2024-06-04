@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2127837838209566198}
   m_Layer: 0
   m_Name: Bollard
-  m_TagString: Bollard1
+  m_TagString: Bollard3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
