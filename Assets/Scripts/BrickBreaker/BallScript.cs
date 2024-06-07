@@ -17,6 +17,8 @@ public class BallScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var paddleController = collision.gameObject.GetComponent<PaddleController>();
+        
         if (collision.gameObject.CompareTag("Brick"))
         {
             score++;
@@ -29,6 +31,13 @@ public class BallScript : MonoBehaviour
             ballMoving = false;
             lives--;
             Debug.Log("Lives Left: " + lives);
+        }
+        else if (paddleController != null)
+        {
+            var velocity = myRb.velocity.normalized;
+            var returnVelocity = -Vector2.Reflect(velocity, collision.GetContact(0).normal);
+            returnVelocity.x *= -1;
+            myRb.velocity = returnVelocity * speed;
         }
     }
 
@@ -62,7 +71,4 @@ public class BallScript : MonoBehaviour
 
         myRb.velocity = (force.normalized * speed);
     }
-
-    
-
 }
