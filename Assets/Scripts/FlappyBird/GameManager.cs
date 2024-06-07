@@ -50,24 +50,24 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-            /*playerObject = GameObject.FindGameObjectWithTag("Player");
-            player = playerObject.GetComponent<Player>();
-            spawnerObject = GameObject.FindGameObjectWithTag("Spawner");
-            spawner = spawnerObject.GetComponent<Spawner>();
-            scoreTextObject = GameObject.FindGameObjectWithTag("ScoreText");
-            scoreText = scoreTextObject.GetComponent<Text>();
-            playButton = GameObject.FindGameObjectWithTag("PlayButton");
-            gameOver = GameObject.FindGameObjectWithTag("GameOver");*/
+        /*playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = playerObject.GetComponent<Player>();
+        spawnerObject = GameObject.FindGameObjectWithTag("Spawner");
+        spawner = spawnerObject.GetComponent<Spawner>();
+        scoreTextObject = GameObject.FindGameObjectWithTag("ScoreText");
+        scoreText = scoreTextObject.GetComponent<Text>();
+        playButton = GameObject.FindGameObjectWithTag("PlayButton");
+        gameOver = GameObject.FindGameObjectWithTag("GameOver");*/
 
-            // TODO: Tim asks why you are setting the frame rate over, this appears
-            // to be superfluous
-            Application.targetFrameRate = 60;
-           
-            Pause();
-
-            playButton.SetActive(true);
-            gameOver.SetActive(false);
+        // TODO: Tim asks why you are setting the frame rate over, this appears
+        // to be superfluous
         
+        Application.targetFrameRate = 60;
+        playerManager = PlayerManager.LazyLoad();
+        Pause();
+
+        playButton.SetActive(true);
+        gameOver.SetActive(false);
     }
 
     public void Play()
