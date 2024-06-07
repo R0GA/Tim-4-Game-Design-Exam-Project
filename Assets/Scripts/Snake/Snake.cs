@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-
-
 
 
 public class Snake : MonoBehaviour
@@ -24,11 +20,29 @@ public class Snake : MonoBehaviour
     Vector2 dir;
 
     public TMP_Text points;
+    
+    GameObject food;
+    bool isAlive;
 
+    [SerializeField]
+    private float timeBetweenMovements = 0.5f;
+    
+    float passedTime;
+
+    public GameObject gameOverUI;
+
+    [SerializeField]
+    private float speed = 5;
+    
     // Start is called before the first frame update
     void Start()
     {
-        timeBetweenMovements = 0.5f;
+        if (playerManager == null)
+        {
+            playerManager = PlayerManager.LazyLoad();
+        }
+        
+        //timeBetweenMovements = 0.5f;
         dir = Vector2.right;
         createGrid();
         createPlayer();
@@ -57,8 +71,7 @@ public class Snake : MonoBehaviour
         return isInHead || isInTail;
     }
     
-    GameObject food;
-    bool isAlive;
+    
 
     private void spawnFood()
     {
@@ -82,6 +95,9 @@ public class Snake : MonoBehaviour
 
     private void createGrid()
     {
+        var halfX = xSize / 2;
+        var halfY = ySize / 2;
+        
         for (int x = 0; x <= xSize; x++)
         {
             GameObject borderBottom = Instantiate(block) as GameObject;
@@ -101,15 +117,14 @@ public class Snake : MonoBehaviour
         }
     }
 
-    float passedTime, timeBetweenMovements;
-
-    public GameObject gameOverUI;
+    
 
 
     private void gameOver()
     {
         isAlive = false;
 
+        
         playerManager.ExitMiniGame(tail.Count);
 
         //gameOverUI.SetActive(true);
@@ -145,10 +160,12 @@ public class Snake : MonoBehaviour
         {
             passedTime = 0;
             // Move
-            Vector3 newPosition = head.GetComponent<Transform>().position + new Vector3(dir.x, dir.y, 0);
+            Vector3 newPosition = head.GetComponent<Transform>().position + new Vector3(dir.x, dir.y, 0) * speed;
 
             // Check if collides with border
-            if(newPosition.x >= xSize/2 || newPosition.x <= -xSize/2 || newPosition.y >= ySize/2 || newPosition.x <= -ySize/2)
+            var xPosition = newPosition.x;
+            var yPosition = newPosition.y;
+            if(newPosition.x >= xSize/2 || newPosition.x <= -xSize/2 || newPosition.y >= ySize/2 || newPosition.y <= -ySize/2)
             {
                 gameOver();
             }
@@ -191,10 +208,6 @@ public class Snake : MonoBehaviour
                 }
 
             }
-
-                
-
-
         }
     }
 }

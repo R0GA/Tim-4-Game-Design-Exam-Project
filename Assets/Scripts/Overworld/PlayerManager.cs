@@ -55,6 +55,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private bool p2B3Bought = false;
 
+    public static PlayerManager LazyLoad()
+    {
+        return Instance;
+    }
 
     private void Awake()
     {
