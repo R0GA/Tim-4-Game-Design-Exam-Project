@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject gameOver;
     PlayerManager playerManager = PlayerManager.Instance;
+    private bool started = false;
 
     private int score;
     public int Score => score;
@@ -70,6 +71,15 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !started)
+        {
+            started = true;
+            Play();
+        }
+    }
+
     public void Play()
     {
         score = 0;
@@ -92,7 +102,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
 
-        playButton.SetActive(true);
+       // playButton.SetActive(true);
         gameOver.SetActive(true);
        // Pause();
         playerManager.ExitMiniGame(score);
