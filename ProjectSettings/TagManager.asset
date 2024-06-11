@@ -4,19 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Brick
+  - Objective
   - Obstacle
-  - Scoring
-  - House
-  - P2TXT
-  - P1TXT
-  - Player1
-  - Player2
-  - PlayerManager
-  - BuyCanvas
-  - Bollard1
-  - Bollard2
-  - Bollard3
   layers:
   - Default
   - TransparentFX
@@ -24,12 +13,12 @@ TagManager:
   - Player
   - Water
   - UI
-  - Bomb
-  - Explosion
-  - Stage
-  - Item
-  - Player1
-  - Player2
+  - Ground
+  - Ladder
+  - Barrel
+  - 
+  - 
+  - 
   - 
   - 
   - 
