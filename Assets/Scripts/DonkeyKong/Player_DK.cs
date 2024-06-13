@@ -142,8 +142,8 @@ public class Player_DK : MonoBehaviour
     private void RestartGame()
     {
         //SceneManager.LoadScene("StartScene_DK");
-        
-        int ran = Random.Range(1, 3);
+
+        int ran = 4; // Random.Range(1, 3);
         Debug.Log(ran);
         if (ran == 1)
         {
@@ -159,7 +159,7 @@ public class Player_DK : MonoBehaviour
         }
         else if (ran == 4)
         {
-            SceneManager.LoadScene("Snake");
+            SceneManager.LoadScene("GhostCollector");
         }
 
     }

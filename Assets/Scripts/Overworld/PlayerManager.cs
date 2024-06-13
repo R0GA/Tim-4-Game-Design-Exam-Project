@@ -301,7 +301,7 @@ public class PlayerManager : MonoBehaviour
                 case MiniGame.SpaceInvaders:
                     break;
                 case MiniGame.Snake:
-                    SceneManager.LoadScene("Snake");
+                    SceneManager.LoadScene("GhostCollector");
                     break;
                 case MiniGame.Random:
                     int ran = Random.Range(1, 5);
@@ -320,7 +320,7 @@ public class PlayerManager : MonoBehaviour
                     }
                     else if (ran == 4)
                     {
-                        SceneManager.LoadScene("Snake");
+                        SceneManager.LoadScene("GhostCollector");
                     }
                     break;
                 case MiniGame.DonkeyKong:

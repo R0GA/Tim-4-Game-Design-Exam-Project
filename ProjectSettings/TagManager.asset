@@ -4,8 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Objective
+  - Ghost
+  - GhostBullet
+  - PlayerBullet
+  - Sheild
+  - GameManager_PM
   - Obstacle
+  - Objective
+  - P2TXT
+  - P1TXT
+  - BuyCanvas
+  - Player1
+  - Player2
+  - PlayerManager
+  - Bollard3
+  - Bollard2
+  - Bollard1
+  - House
   layers:
   - Default
   - TransparentFX
@@ -13,16 +28,16 @@ TagManager:
   - Player
   - Water
   - UI
+  - Pacman
+  - Ghost
+  - Pellet
+  - Obstacle
+  - Node
   - Ground
   - Ladder
   - Barrel
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player1
+  - Player2
   - 
   - 
   - 
