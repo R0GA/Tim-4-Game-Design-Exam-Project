@@ -7,16 +7,16 @@ using UnityEngine;
 public class BottomBoundaryGS : MonoBehaviour
 {
     public GameObject ghosts;
-
+    [SerializeField]
+    GhostMaster ghostMaster;
+    [SerializeField]
+    UIManagerGS uiManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
-
         if (collision.gameObject.CompareTag("Ghost"))
         {
-            Time.timeScale = 0;
-            Destroy(ghosts);
+            ghostMaster.EndGame(uiManager.score);
         }
     }
 }

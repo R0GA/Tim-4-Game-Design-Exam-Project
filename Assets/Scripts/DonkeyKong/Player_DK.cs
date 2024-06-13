@@ -143,7 +143,7 @@ public class Player_DK : MonoBehaviour
     {
         //SceneManager.LoadScene("StartScene_DK");
 
-        int ran = 4; // Random.Range(1, 3);
+        int ran = 3; //Random.Range(1, 6);
         Debug.Log(ran);
         if (ran == 1)
         {
@@ -155,11 +155,15 @@ public class Player_DK : MonoBehaviour
         }
         else if (ran == 3)
         {
-            Debug.Log("Space Invaders");
+            SceneManager.LoadScene("GhostShooterMiniGame");
         }
         else if (ran == 4)
         {
             SceneManager.LoadScene("GhostCollector");
+        }
+        else if (ran == 5)
+        {
+            SceneManager.LoadScene("Pacman");
         }
 
     }

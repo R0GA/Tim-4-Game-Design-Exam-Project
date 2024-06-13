@@ -21,6 +21,7 @@ TagManager:
   - Bollard2
   - Bollard1
   - House
+  - GhostMaster
   layers:
   - Default
   - TransparentFX

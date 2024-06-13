@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 //Meghan Rogers Ghost shooter Minigame
 public class GhostMaster : MonoBehaviour
 {
-
+    public PlayerManager playerManager = PlayerManager.Instance;
     public GameObject bulletPrefab;
     public GameObject mothershipPrefab;
 
@@ -38,10 +39,14 @@ public class GhostMaster : MonoBehaviour
     private bool movingRight;
 
     //the block of Ghosts. Sensing all enemies. 
-    public static List<GameObject> allGhosts = new List<GameObject>();
+    public List<GameObject> allGhosts = new List<GameObject>();
+
+    [SerializeField]
+    UIManagerGS uiManager;
     
     void Start()
     {
+        playerManager = PlayerManager.Instance;
         //sorry, Tim, for I have sinned.
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Ghost")) //i can hear him screaming at me
         {
@@ -63,6 +68,15 @@ public class GhostMaster : MonoBehaviour
         moveTimer -= Time.deltaTime;
         shootTimer -= Time.deltaTime;
         mothershipTimer -= Time.deltaTime;
+
+        if (playerManager.InBossMinigame)
+        {
+            if(uiManager.score >= 10)
+            {
+                SceneManager.LoadScene("GameScene_DK");
+            }
+        }
+
     }
 
     private void MoveGhosts()
@@ -121,4 +135,16 @@ public class GhostMaster : MonoBehaviour
         else 
             return f;
     }
+
+    public void EndGame(int Score)
+    {
+        if (playerManager.InBossMinigame)
+        {
+            playerManager.ExitMiniGame(0);
+            playerManager.InBossMinigame = false;
+        }
+        else
+            playerManager.ExitMiniGame(Score);
+    }
+
 }

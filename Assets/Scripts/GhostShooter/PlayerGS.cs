@@ -20,6 +20,11 @@ public class PlayerGS : MonoBehaviour
     private float speed = 3;
     private float cooldown = 0.5f;
 
+    [SerializeField]
+    private UIManagerGS uiManager;
+    [SerializeField]
+    private GhostMaster ghostMaster;
+
     private bool isShooting;
 
     private void Start()
@@ -50,26 +55,6 @@ public class PlayerGS : MonoBehaviour
         
     }
 
-    private void TakeDamage()
-    {
-        playerStats.currentHealth--;
-        if (playerStats.currentHealth <= 0)
-        {
-            playerStats.currentLives--;
-
-            if (playerStats.currentLives <= 0)
-            {
-                Debug.Log("GAME OVER");
-                Time.timeScale = 0;
-
-            }
-            else
-            {
-                StartCoroutine(Respawn());
-            }
-        }
-    }
-
     private IEnumerator Shoot()
     {
         isShooting = true;
@@ -80,40 +65,9 @@ public class PlayerGS : MonoBehaviour
         isShooting = false;
     }
 
-    private IEnumerator Respawn()
-    {
-        Time.timeScale = 0;
-        transform.position = offScreenPos;
-        
-        yield return new WaitForSeconds(10);
-        playerStats.currentHealth = playerStats.maxHealth;
-
-        transform.position = startingPos;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("GhostBullet"))
-        {
-            Debug.Log("player was hit!");
-            TakeDamage();
-            Destroy(collision.gameObject);
-            Time.timeScale = 0;
-
-        }
-    }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("GhostBullet"))
-        {
-            StartCoroutine(Respawn());
-        }
-        if (collision.gameObject.CompareTag("Ghost"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject); 
-            Time.timeScale = 0;
-            Debug.Log("GAME OVER");
-           
-        }
+        if(collision.CompareTag("Ghost") || collision.CompareTag("GhostBullet"))
+        ghostMaster.EndGame(uiManager.score);
     }
 }

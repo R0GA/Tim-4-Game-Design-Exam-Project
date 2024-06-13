@@ -901,6 +901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghosts: {fileID: 1651917430}
+  ghostMaster: {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!61 &182348704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2999,6 +3001,8 @@ MonoBehaviour:
     playerSpeed: 0
     fireRate: 0
   bulletPrefab: {fileID: 7953209707544244035, guid: 1bbc8fe1b52483141b253a13b54f16af, type: 3}
+  uiManager: {fileID: 219088672}
+  ghostMaster: {fileID: 734833560}
 --- !u!61 &605713279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3575,7 +3579,7 @@ GameObject:
   - component: {fileID: 734833560}
   m_Layer: 0
   m_Name: GhostParent
-  m_TagString: Untagged
+  m_TagString: GhostMaster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3592,8 +3596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80daee778414038468ec1f18174e069c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   bulletPrefab: {fileID: 9074805768075718437, guid: 11ef65fe48a2cde4999909db613f45ec, type: 3}
   mothershipPrefab: {fileID: 7943332245863661639, guid: 67145ad928cf6b542903e821d0dcbd06, type: 3}
+  allGhosts: []
+  uiManager: {fileID: 219088672}
 --- !u!4 &734833561
 Transform:
   m_ObjectHideFlags: 0

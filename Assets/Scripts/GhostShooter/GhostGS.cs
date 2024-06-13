@@ -8,19 +8,25 @@ public class GhostGS : MonoBehaviour
 {
     public int scoreValue;
     public GameObject explosion;
-   
+    [SerializeField]
+    private GhostMaster ghostMaster;
+
+    private void Start()
+    {
+        ghostMaster = GameObject.FindGameObjectWithTag("GhostMaster").GetComponent<GhostMaster>();
+    }
 
     public void Kill()
     {
         UIManagerGS.UpdateScore(scoreValue);
-        GhostMaster.allGhosts.Remove(gameObject);
+        ghostMaster.allGhosts.Remove(gameObject);
         Instantiate(explosion, transform.position, Quaternion.identity);
         
         Destroy(gameObject);
             
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Finish"))
         {
@@ -29,4 +35,5 @@ public class GhostGS : MonoBehaviour
             Destroy(gameObject);
         }
     }
+   */
 }

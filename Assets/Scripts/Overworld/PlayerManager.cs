@@ -299,12 +299,16 @@ public class PlayerManager : MonoBehaviour
                     SceneManager.LoadScene("Flappy Bird");
                     break;
                 case MiniGame.SpaceInvaders:
+                    SceneManager.LoadScene("GhostShooterMiniGame");
                     break;
                 case MiniGame.Snake:
                     SceneManager.LoadScene("GhostCollector");
                     break;
+                case MiniGame.PacMan:
+                    SceneManager.LoadScene("Pacman");
+                    break;
                 case MiniGame.Random:
-                    int ran = Random.Range(1, 5);
+                    int ran = Random.Range(1, 6);
                     Debug.Log(ran);
                     if (ran == 1)
                     {
@@ -316,11 +320,15 @@ public class PlayerManager : MonoBehaviour
                     }
                     else if (ran == 3)
                     {
-                        Debug.Log("Space Invaders");
+                        SceneManager.LoadScene("GhostShooterMiniGame");
                     }
                     else if (ran == 4)
                     {
                         SceneManager.LoadScene("GhostCollector");
+                    }
+                    else if (ran == 5)
+                    {
+                        SceneManager.LoadScene("Pacman");
                     }
                     break;
                 case MiniGame.DonkeyKong:
