@@ -8,5 +8,6 @@ public enum MiniGame
     FlappyBird,
     SpaceInvaders,
     Snake,
-    Random
+    Random,
+    DonkeyKong
 }

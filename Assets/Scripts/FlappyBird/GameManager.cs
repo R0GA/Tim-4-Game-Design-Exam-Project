@@ -101,11 +101,26 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
        // playButton.SetActive(true);
         gameOver.SetActive(true);
        // Pause();
-        playerManager.ExitMiniGame(score);
+       
+        if (playerManager.InBossMinigame)
+        {
+            if( score >= 5)
+            {
+                SceneManager.LoadScene("GameScene_DK");
+            }
+            else
+            {
+                playerManager.InBossMinigame = false;
+                playerManager.ExitMiniGame(0);
+            }
+        }
+        else
+        {
+            playerManager.ExitMiniGame(score);
+        }
 
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallScript : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BallScript : MonoBehaviour
     private float speed;
     private int score = 0;
     private Vector2 startPosition;
-    private int lives = 3;
+    private int lives = 1;
     private bool ballMoving = false;
     PlayerManager playerManager = PlayerManager.Instance;
 
@@ -46,11 +47,25 @@ public class BallScript : MonoBehaviour
             SetRandomTrajectory();
         }
 
-        if(score == 40 || lives == 0)
+        if (playerManager.InBossMinigame)
         {
-            playerManager.ExitMiniGame(score);
+            if(score == 15)
+            {
+                SceneManager.LoadScene("GameScene_DK");
+            }
+            else if(lives == 0)
+            {
+                playerManager.InBossMinigame = false;
+                playerManager.ExitMiniGame(0);
+            }
         }
-
+        else
+        {
+            if (score == 40 || lives == 0)
+            {
+                playerManager.ExitMiniGame(score);
+            }
+        }
     }
 
     private void SetRandomTrajectory()

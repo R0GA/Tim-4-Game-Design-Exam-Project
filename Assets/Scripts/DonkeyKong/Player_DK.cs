@@ -141,7 +141,27 @@ public class Player_DK : MonoBehaviour
     }
     private void RestartGame()
     {
-        SceneManager.LoadScene("StartScene_DK");
+        //SceneManager.LoadScene("StartScene_DK");
+        
+        int ran = Random.Range(1, 3);
+        Debug.Log(ran);
+        if (ran == 1)
+        {
+            SceneManager.LoadScene("GhostBreaker");
+        }
+        else if (ran == 2)
+        {
+            SceneManager.LoadScene("Flappy Bird");
+        }
+        else if (ran == 3)
+        {
+            Debug.Log("Space Invaders");
+        }
+        else if (ran == 4)
+        {
+            SceneManager.LoadScene("Snake");
+        }
+
     }
 
 }

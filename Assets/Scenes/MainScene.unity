@@ -4005,7 +4005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6918,6 +6918,7 @@ MonoBehaviour:
   player2Score: 0
   currentPlayer: 1
   buyCanvas: {fileID: 0}
+  InBossMinigame: 0
   bollard1: {fileID: 0}
   bollard2: {fileID: 0}
   bollard3: {fileID: 0}

@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     private GameObject player1;
     private GameObject player2;
 
+    public bool InBossMinigame =  false;
+
     private GameObject currentBollard;
     [SerializeField]
     private GameObject bollard1;
@@ -320,6 +322,10 @@ public class PlayerManager : MonoBehaviour
                     {
                         SceneManager.LoadScene("Snake");
                     }
+                    break;
+                case MiniGame.DonkeyKong:
+                    InBossMinigame = true;
+                    SceneManager.LoadScene("GameScene_DK");
                     break;
             }
         }
