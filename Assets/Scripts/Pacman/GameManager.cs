@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager_PM : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class GameManager_PM : MonoBehaviour
     [SerializeField] private Text livesText;
 
     private int ghostMultiplier = 1;
-    private int lives = 3;
+    private int lives = 1;
     private int score = 0;
+
+    public PlayerManager playerManager = PlayerManager.Instance;
 
     public int Lives => lives;
     public int Score => score;
@@ -37,6 +40,7 @@ public class GameManager_PM : MonoBehaviour
 
     private void Start()
     {
+        playerManager = PlayerManager.Instance;
         NewGame();
     }
 
@@ -46,12 +50,21 @@ public class GameManager_PM : MonoBehaviour
         {
             NewGame();
         }
+
+        if (playerManager.InBossMinigame)
+        {
+            if (score >= 2000)
+            {
+                SceneManager.LoadScene("GameScene_DK");
+            }
+        }
+
     }
 
     private void NewGame()
     {
         SetScore(0);
-        SetLives(3);
+        SetLives(1);
         NewRound();
     }
 
@@ -97,7 +110,15 @@ public class GameManager_PM : MonoBehaviour
 
     private void GameOver()
     {
-        gameOverText.enabled = true;
+        if (playerManager.InBossMinigame)
+        {
+            playerManager.ExitMiniGame(0);
+            playerManager.InBossMinigame = false;
+        }
+        else
+            playerManager.ExitMiniGame(score / 100);
+
+       /* gameOverText.enabled = true;
 
         for (int i = 0; i < ghosts.Length; i++)
         {
@@ -105,6 +126,7 @@ public class GameManager_PM : MonoBehaviour
         }
 
         pacman.gameObject.SetActive(false);
+       */
     }
 
     private void SetLives(int lives)

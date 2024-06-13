@@ -143,7 +143,7 @@ public class Player_DK : MonoBehaviour
     {
         //SceneManager.LoadScene("StartScene_DK");
 
-        int ran = 3; //Random.Range(1, 6);
+        int ran = Random.Range(1, 6);
         Debug.Log(ran);
         if (ran == 1)
         {
