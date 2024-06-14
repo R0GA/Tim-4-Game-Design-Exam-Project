@@ -26,6 +26,8 @@ public class PlayerManager : MonoBehaviour
     private GameObject gameCanvas;
     private GameObject infoPanel;
     private GameObject scorePanel;
+    private GameObject firstPlayPanel;
+    private bool firstPlay = true;
  
     
 
@@ -99,6 +101,7 @@ public class PlayerManager : MonoBehaviour
         gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
         scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
         infoPanel = GameObject.FindGameObjectWithTag("InfoPanel");
+        firstPlayPanel = GameObject.FindGameObjectWithTag("FPP");
 
         if (bollard1 != null)
             p1B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
@@ -128,6 +131,16 @@ public class PlayerManager : MonoBehaviour
             b2Text.gameObject.SetActive(false);
         if (buyCanvas != null)
             buyCanvas.gameObject.SetActive(false);
+
+        if (firstPlay)
+        {
+            firstPlayPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (firstPlayPanel != null)
+            firstPlayPanel.gameObject.SetActive(false);
+        }
 
         
 
@@ -213,6 +226,7 @@ public class PlayerManager : MonoBehaviour
         gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
         scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
         infoPanel = GameObject.FindGameObjectWithTag("InfoPanel");
+        firstPlayPanel = GameObject.FindGameObjectWithTag("FPP");
 
         if (bollard1 != null)
             p1B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
@@ -243,6 +257,16 @@ public class PlayerManager : MonoBehaviour
             buyCanvas.gameObject.SetActive(false);
         if (infoPanel != null)
             infoPanel.gameObject.SetActive(false);
+
+        if (firstPlay)
+        {
+            firstPlayPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            if (firstPlayPanel != null)
+            firstPlayPanel.gameObject.SetActive(false);
+        }
 
         if (currentPlayer == 1)
         {
@@ -536,6 +560,12 @@ public class PlayerManager : MonoBehaviour
     {
         scorePanel.gameObject.SetActive(true);
         infoPanel.gameObject.SetActive(false);
+    }
+
+    public void CloseFPP()
+    {
+        firstPlayPanel.gameObject.SetActive(false);
+        firstPlay = false;
     }
 
 }

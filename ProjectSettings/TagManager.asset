@@ -39,6 +39,7 @@ TagManager:
   - p2WB
   - p2WR
   - p2WL
+  - FPP
   layers:
   - Default
   - TransparentFX

@@ -45,4 +45,9 @@ public class UIManager : MonoBehaviour
         playerManager.CloseInfoPanel();
     }
 
+    public void CloseFPP()
+    {
+        playerManager.CloseFPP();
+    }
+
 }
