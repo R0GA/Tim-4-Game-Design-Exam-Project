@@ -175,4 +175,9 @@ public class Player_DK : MonoBehaviour
 
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
