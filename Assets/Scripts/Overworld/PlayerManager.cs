@@ -23,6 +23,9 @@ public class PlayerManager : MonoBehaviour
     private TMP_Text b1Text;
     private TMP_Text b2Text;
     private int bolCost;
+    private GameObject gameCanvas;
+    private GameObject infoPanel;
+    private GameObject scorePanel;
  
     
 
@@ -93,6 +96,9 @@ public class PlayerManager : MonoBehaviour
         bollard2 = GameObject.FindGameObjectWithTag("Bollard2");
         bollard3 = GameObject.FindGameObjectWithTag("Bollard3");
         buyCanvas = GameObject.FindGameObjectWithTag("BuyCanvas");
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
+        scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
+        infoPanel = GameObject.FindGameObjectWithTag("InfoPanel");
 
         if (bollard1 != null)
             p1B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
@@ -112,6 +118,9 @@ public class PlayerManager : MonoBehaviour
             b1Text = GameObject.FindGameObjectWithTag("B1TXT").GetComponent<TMP_Text>();
         if (buyCanvas != null)
             b2Text = GameObject.FindGameObjectWithTag("B2TXT").GetComponent<TMP_Text>();
+        if(infoPanel != null)
+            infoPanel.gameObject.SetActive(false);
+       
 
         if (buyCanvas != null)
             b1Text.gameObject.SetActive(false);
@@ -201,8 +210,11 @@ public class PlayerManager : MonoBehaviour
         bollard2 = GameObject.FindGameObjectWithTag("Bollard2");
         bollard3 = GameObject.FindGameObjectWithTag("Bollard3");
         buyCanvas = GameObject.FindGameObjectWithTag("BuyCanvas");
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas");
+        scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
+        infoPanel = GameObject.FindGameObjectWithTag("InfoPanel");
 
-        if(bollard1 != null)
+        if (bollard1 != null)
             p1B1Coll = bollard1.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
         if(bollard2 != null)
             p1B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P1Collider"));
@@ -229,6 +241,8 @@ public class PlayerManager : MonoBehaviour
             b2Text.gameObject.SetActive(false);
         if (buyCanvas != null)
             buyCanvas.gameObject.SetActive(false);
+        if (infoPanel != null)
+            infoPanel.gameObject.SetActive(false);
 
         if (currentPlayer == 1)
         {
@@ -510,6 +524,18 @@ public class PlayerManager : MonoBehaviour
         b1Text.gameObject.SetActive(false);
         b2Text.gameObject.SetActive(false);
         buyCanvas.gameObject.SetActive(false);
+    }
+
+    public void OpenInfoPanel()
+    {
+        scorePanel.gameObject.SetActive(false);
+        infoPanel.gameObject.SetActive(true);
+    }
+
+    public void CloseInfoPanel()
+    {
+        scorePanel.gameObject.SetActive(true);
+        infoPanel.gameObject.SetActive(false);
     }
 
 }

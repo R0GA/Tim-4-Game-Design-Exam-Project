@@ -28,6 +28,9 @@ TagManager:
   - Brick
   - B1TXT
   - B2TXT
+  - ScorePanel
+  - InfoPanel
+  - GameCanvas
   layers:
   - Default
   - TransparentFX

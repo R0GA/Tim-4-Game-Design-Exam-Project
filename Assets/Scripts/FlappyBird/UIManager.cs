@@ -34,4 +34,15 @@ public class UIManager : MonoBehaviour
         player2Text.text = playerManager.player2Score.ToString();
 
     }
+
+    public void OpenInfoPanel()
+    {
+        playerManager.OpenInfoPanel();
+    }
+
+    public void CloseInfoPanel()
+    {
+        playerManager.CloseInfoPanel();
+    }
+
 }
