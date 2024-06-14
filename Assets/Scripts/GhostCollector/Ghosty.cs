@@ -175,7 +175,7 @@ public class Ghosty : MonoBehaviour
             }
         }
 
-        if (playerManager.InBossMinigame && tail.Count == 7)
+        if (playerManager.InBossMinigame && tail.Count == 12)
         {
                 SceneManager.LoadScene("GameScene_DK");
         }
@@ -196,11 +196,13 @@ public class Ghosty : MonoBehaviour
         {
             if (playerManager.currentPlayer == 1)
             {
-                playerManager.ExitMiniGame(Mathf.RoundToInt(tail.Count * playerManager.p1ScoreMultiplier) * 2);
+                float score = (tail.Count * playerManager.p1ScoreMultiplier) * 1.5f;
+                playerManager.ExitMiniGame(Mathf.RoundToInt(score));
             }
             else if (playerManager.currentPlayer == 2)
             {
-                playerManager.ExitMiniGame(Mathf.RoundToInt(tail.Count * playerManager.p2ScoreMultiplier) * 2);
+                float score = (tail.Count * playerManager.p2ScoreMultiplier) * 1.5f;
+                playerManager.ExitMiniGame(Mathf.RoundToInt(score));
             }
         }
        //gameOverUI.SetActive(true);

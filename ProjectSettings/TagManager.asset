@@ -23,6 +23,11 @@ TagManager:
   - House
   - GhostMaster
   - BuyTXT
+  - Ball
+  - BottomWall
+  - Brick
+  - B1TXT
+  - B2TXT
   layers:
   - Default
   - TransparentFX

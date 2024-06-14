@@ -20,7 +20,10 @@ public class PlayerManager : MonoBehaviour
     private GameObject player2;
     [SerializeField]
     private TMP_Text costTXT;
+    private TMP_Text b1Text;
+    private TMP_Text b2Text;
     private int bolCost;
+ 
     
 
     public bool InBossMinigame =  false;
@@ -105,7 +108,15 @@ public class PlayerManager : MonoBehaviour
             p2B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
         if (buyCanvas != null)
             costTXT = GameObject.FindGameObjectWithTag("BuyTXT").GetComponent<TMP_Text>();
+        if (buyCanvas != null)
+            b1Text = GameObject.FindGameObjectWithTag("B1TXT").GetComponent<TMP_Text>();
+        if (buyCanvas != null)
+            b2Text = GameObject.FindGameObjectWithTag("B2TXT").GetComponent<TMP_Text>();
 
+        if (buyCanvas != null)
+            b1Text.gameObject.SetActive(false);
+        if (buyCanvas != null)
+            b2Text.gameObject.SetActive(false);
         if (buyCanvas != null)
             buyCanvas.gameObject.SetActive(false);
 
@@ -207,7 +218,15 @@ public class PlayerManager : MonoBehaviour
 
         if (buyCanvas != null)
             costTXT = GameObject.FindGameObjectWithTag("BuyTXT").GetComponent<TMP_Text>();
+        if (buyCanvas != null)
+            b1Text = GameObject.FindGameObjectWithTag("B1TXT").GetComponent<TMP_Text>();
+        if (buyCanvas != null)
+            b2Text = GameObject.FindGameObjectWithTag("B2TXT").GetComponent<TMP_Text>();
 
+        if (buyCanvas != null)
+            b1Text.gameObject.SetActive(false);
+        if (buyCanvas != null)
+            b2Text.gameObject.SetActive(false);
         if (buyCanvas != null)
             buyCanvas.gameObject.SetActive(false);
 
@@ -472,9 +491,24 @@ public class PlayerManager : MonoBehaviour
         currentBollard = bol;
         costTXT.text = "Would you like to open the next section for " + cost.ToString() + " points?";
         bolCost = cost;
+
+        Debug.Log(currentBollard);
+        Debug.Log(b2Text);
+
+        if (currentBollard == bollard1)
+        {
+            b1Text.gameObject.SetActive(true);
+        }
+        else if (currentBollard == bollard2)
+        {
+            Debug.Log("yep");
+            b2Text.gameObject.SetActive(true);
+        }
     }
     public void CloseBuyUI()
     {
+        b1Text.gameObject.SetActive(false);
+        b2Text.gameObject.SetActive(false);
         buyCanvas.gameObject.SetActive(false);
     }
 
