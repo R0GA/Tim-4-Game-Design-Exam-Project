@@ -10,13 +10,31 @@ public class PlayerController : MonoBehaviour
     private PlayerManager playerManager = PlayerManager.Instance;
 
     [SerializeField]
+    private GameObject p1WF;
+    [SerializeField]
+    private GameObject p1WB;
+    [SerializeField]
+    private GameObject p1WL;
+    [SerializeField] 
+    private GameObject p1WR;
+    [SerializeField]
+    private GameObject p2WF;
+    [SerializeField]
+    private GameObject p2WB;
+    [SerializeField]
+    private GameObject p2WL;
+    [SerializeField]
+    private GameObject p2WR;
+
+
+    [SerializeField]
     private KeyCode interactWithHouse = KeyCode.Space;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerManager = PlayerManager.Instance;
-}
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -75,6 +93,70 @@ public class PlayerController : MonoBehaviour
                 PlayerManager.Instance.EnterMiniGame(currentHouse);
             }
         }
+
+       if(playerManager.currentPlayer == 1)
+        {
+            if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                p1WB.gameObject.SetActive(false);
+                p1WL.gameObject.SetActive(false);
+                p1WR.gameObject.SetActive(false);
+                p1WF.gameObject.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                p1WF.gameObject.SetActive(false);
+                p1WL.gameObject.SetActive(false);
+                p1WR.gameObject.SetActive(false);
+                p1WB.gameObject.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                p1WB.gameObject.SetActive(false);
+                p1WF.gameObject.SetActive(false);
+                p1WR.gameObject.SetActive(false);
+                p1WL.gameObject.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                p1WB.gameObject.SetActive(false);
+                p1WL.gameObject.SetActive(false);
+                p1WF.gameObject.SetActive(false);
+                p1WR.gameObject.SetActive(true);
+            }
+        }
+        if (playerManager.currentPlayer == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                p2WB.gameObject.SetActive(false);
+                p2WL.gameObject.SetActive(false);
+                p2WR.gameObject.SetActive(false);
+                p2WF.gameObject.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                p2WF.gameObject.SetActive(false);
+                p2WL.gameObject.SetActive(false);
+                p2WR.gameObject.SetActive(false);
+                p2WB.gameObject.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                p2WB.gameObject.SetActive(false);
+                p2WF.gameObject.SetActive(false);
+                p2WR.gameObject.SetActive(false);
+                p2WL.gameObject.SetActive(true);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                p2WB.gameObject.SetActive(false);
+                p2WL.gameObject.SetActive(false);
+                p2WF.gameObject.SetActive(false);
+                p2WR.gameObject.SetActive(true);
+            }
+        }
+
     }
 
     private void FixedUpdate()

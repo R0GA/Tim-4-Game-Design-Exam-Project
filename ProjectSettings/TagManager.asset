@@ -31,6 +31,14 @@ TagManager:
   - ScorePanel
   - InfoPanel
   - GameCanvas
+  - p1WF
+  - p1WB
+  - p1WR
+  - p1WL
+  - p2WF
+  - p2WB
+  - p2WR
+  - p2WL
   layers:
   - Default
   - TransparentFX
