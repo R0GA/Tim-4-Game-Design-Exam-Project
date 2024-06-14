@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
 
 //Meghan Rogers Ghost shooter Minigame
@@ -71,7 +72,7 @@ public class GhostMaster : MonoBehaviour
 
         if (playerManager.InBossMinigame)
         {
-            if(uiManager.score >= 10)
+            if(uiManager.score >= 25)
             {
                 SceneManager.LoadScene("GameScene_DK");
             }
@@ -144,7 +145,17 @@ public class GhostMaster : MonoBehaviour
             playerManager.InBossMinigame = false;
         }
         else
-            playerManager.ExitMiniGame(Score);
+        {
+            if (playerManager.currentPlayer == 1)
+            {
+                playerManager.ExitMiniGame(Mathf.RoundToInt(Score * playerManager.p1ScoreMultiplier));
+            }
+            else if (playerManager.currentPlayer == 2)
+            {
+                playerManager.ExitMiniGame(Mathf.RoundToInt(Score * playerManager.p2ScoreMultiplier));
+            }
+        }
+           
     }
 
 }

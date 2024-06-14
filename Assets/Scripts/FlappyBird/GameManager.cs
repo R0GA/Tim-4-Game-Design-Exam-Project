@@ -119,7 +119,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            playerManager.ExitMiniGame(score);
+            if (playerManager.currentPlayer == 1)
+            {
+                playerManager.ExitMiniGame(Mathf.RoundToInt(score * playerManager.p1ScoreMultiplier) * 2);
+            }
+            else if (playerManager.currentPlayer == 2)
+            {
+                playerManager.ExitMiniGame(Mathf.RoundToInt(score * playerManager.p2ScoreMultiplier) * 2);
+            }
         }
 
     }

@@ -1,7 +1,9 @@
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,9 +13,15 @@ public class PlayerManager : MonoBehaviour
     public int player2Score = 0;
     public int currentPlayer = 1; // Player 1 starts
     public GameObject buyCanvas;
+    public float p1ScoreMultiplier;
+    public float p2ScoreMultiplier;
 
     private GameObject player1;
     private GameObject player2;
+    [SerializeField]
+    private TMP_Text costTXT;
+    private int bolCost;
+    
 
     public bool InBossMinigame =  false;
 
@@ -95,9 +103,13 @@ public class PlayerManager : MonoBehaviour
             p2B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
         if (bollard3 != null)
             p2B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+        if (buyCanvas != null)
+            costTXT = GameObject.FindGameObjectWithTag("BuyTXT").GetComponent<TMP_Text>();
 
         if (buyCanvas != null)
             buyCanvas.gameObject.SetActive(false);
+
+        
 
         if (currentPlayer == 1)
         {
@@ -191,6 +203,10 @@ public class PlayerManager : MonoBehaviour
             p2B2Coll = bollard2.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
         if (bollard3 != null)
             p2B3Coll = bollard3.GetComponentsInChildren<BoxCollider2D>().ToList().Find(x => x.name.Contains("P2Collider"));
+        if (bollard1 != null)
+
+        if (buyCanvas != null)
+            costTXT = GameObject.FindGameObjectWithTag("BuyTXT").GetComponent<TMP_Text>();
 
         if (buyCanvas != null)
             buyCanvas.gameObject.SetActive(false);
@@ -383,7 +399,7 @@ public class PlayerManager : MonoBehaviour
         if(currentPlayer == 1)
         {
 
-            if(player1Score >= 20)
+            if(player1Score >= bolCost)
             {
                 if(currentBollard == bollard1)
                 {
@@ -401,7 +417,7 @@ public class PlayerManager : MonoBehaviour
                     Destroy(p1B3Coll.gameObject);
                 }
                 
-                player1Score = player1Score - 20;
+                player1Score = player1Score - bolCost;
                 //Destroy(currentBollard);
                 buyCanvas.gameObject.SetActive(false);
             }
@@ -410,7 +426,7 @@ public class PlayerManager : MonoBehaviour
         else if (currentPlayer == 2)
         {
 
-            if (player2Score >= 20)
+            if (player2Score >= bolCost)
             {
                 if (currentBollard == bollard1)
                 {
@@ -427,7 +443,7 @@ public class PlayerManager : MonoBehaviour
                     p2B3Bought = true;
                     Destroy(p2B3Coll.gameObject);
                 }
-                player2Score = player2Score - 20;
+                player2Score = player2Score - bolCost;
                 //Destroy(currentBollard);
                 buyCanvas.gameObject.SetActive(false);
             }
@@ -450,10 +466,12 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void OpenBuyUI(GameObject bol)
+    public void OpenBuyUI(GameObject bol, int cost)
     {
         buyCanvas.gameObject.SetActive(true);
         currentBollard = bol;
+        costTXT.text = "Would you like to open the next section for " + cost.ToString() + " points?";
+        bolCost = cost;
     }
     public void CloseBuyUI()
     {

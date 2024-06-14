@@ -63,7 +63,14 @@ public class BallScript : MonoBehaviour
         {
             if (score == 40 || lives == 0)
             {
-                playerManager.ExitMiniGame(score);
+                if(playerManager.currentPlayer == 1)
+                {
+                    playerManager.ExitMiniGame(Mathf.RoundToInt(score * playerManager.p1ScoreMultiplier));
+                }
+                else if (playerManager.currentPlayer == 2)
+                {
+                    playerManager.ExitMiniGame(Mathf.RoundToInt(score * playerManager.p2ScoreMultiplier));
+                }
             }
         }
     }

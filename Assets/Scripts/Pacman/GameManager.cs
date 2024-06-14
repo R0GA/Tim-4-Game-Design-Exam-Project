@@ -53,7 +53,7 @@ public class GameManager_PM : MonoBehaviour
 
         if (playerManager.InBossMinigame)
         {
-            if (score >= 2000)
+            if (score >= 1500)
             {
                 SceneManager.LoadScene("GameScene_DK");
             }
@@ -116,7 +116,17 @@ public class GameManager_PM : MonoBehaviour
             playerManager.InBossMinigame = false;
         }
         else
-            playerManager.ExitMiniGame(score / 100);
+        {
+            if (playerManager.currentPlayer == 1)
+            {
+                playerManager.ExitMiniGame(Mathf.RoundToInt(score * playerManager.p1ScoreMultiplier)/100);
+            }
+            else if (playerManager.currentPlayer == 2)
+            {
+                playerManager.ExitMiniGame(Mathf.RoundToInt(score * playerManager.p2ScoreMultiplier)/100);
+            }
+        }
+          
 
        /* gameOverText.enabled = true;
 

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private bool isActivePlayer = false; // Track if this player is active
 
     private House currentHouse;
+    private PlayerManager playerManager = PlayerManager.Instance;
 
     [SerializeField]
     private KeyCode interactWithHouse = KeyCode.Space;
@@ -14,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
+        playerManager = PlayerManager.Instance;
+}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,6 +29,18 @@ public class PlayerController : MonoBehaviour
                 PlayerManager.Instance.EnterMiniGame(); // Call method to switch to minigame
             }*/
             currentHouse = house;
+            
+            if(playerManager.currentPlayer == 1)
+            {
+                playerManager.p1ScoreMultiplier = house.ScoreMultiplier;
+            }
+            else if(playerManager.currentPlayer == 2)
+            {
+                playerManager.p2ScoreMultiplier = house.ScoreMultiplier;
+            }
+
+            Debug.Log(playerManager.p1ScoreMultiplier + " " +  playerManager.p2ScoreMultiplier);
+
         }
     }
 

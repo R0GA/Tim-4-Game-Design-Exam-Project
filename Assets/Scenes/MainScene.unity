@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -700,6 +704,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1650,6 +1658,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7311136563742329540, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -2162,6 +2174,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2180,6 +2196,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2072072740}
     m_Modifications:
+    - target: {fileID: 2127837838209566198, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
+      propertyPath: cost
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 2145636516535736005, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.56
@@ -2222,7 +2242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_Name
-      value: Bollard (1)
+      value: Bollard 3
       objectReference: {fileID: 0}
     - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_TagString
@@ -2288,6 +2308,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2498,6 +2522,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3805,6 +3833,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2072072740}
     m_Modifications:
+    - target: {fileID: 2127837838209566198, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
+      propertyPath: cost
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2145636516535736005, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -3847,7 +3879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_Name
-      value: Bollard (2)
+      value: Bollard 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4351,6 +4383,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4416,6 +4452,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5303,6 +5343,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5445,6 +5489,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5755,6 +5803,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5897,6 +5949,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6118,6 +6174,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6141,7 +6201,7 @@ GameObject:
   - component: {fileID: 1711884359}
   m_Layer: 5
   m_Name: BuyTXT
-  m_TagString: Untagged
+  m_TagString: BuyTXT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6625,6 +6685,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7163,6 +7227,10 @@ PrefabInstance:
       propertyPath: miniGame
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7435,6 +7503,10 @@ PrefabInstance:
     - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
       propertyPath: miniGame
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498309595972545304, guid: 0a4fe1020be202247bf772a41e60f45f, type: 3}
+      propertyPath: scoreMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7908,6 +7980,9 @@ MonoBehaviour:
   player2Score: 0
   currentPlayer: 1
   buyCanvas: {fileID: 0}
+  p1ScoreMultiplier: 0
+  p2ScoreMultiplier: 0
+  costTXT: {fileID: 0}
   InBossMinigame: 0
   bollard1: {fileID: 0}
   bollard2: {fileID: 0}
@@ -8050,8 +8125,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1522342770}
-  - {fileID: 725744180}
   - {fileID: 677636582}
+  - {fileID: 725744180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2072072741
@@ -8151,6 +8226,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2072072740}
     m_Modifications:
+    - target: {fileID: 2127837838209566198, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
+      propertyPath: cost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2145636516535736005, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.59
@@ -8193,7 +8272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_Name
-      value: Bollard
+      value: Bollard 1
       objectReference: {fileID: 0}
     - target: {fileID: 3456739318811344564, guid: 732cd76ccaf2afe47b547cf7da0d1380, type: 3}
       propertyPath: m_TagString

@@ -6,6 +6,8 @@ using UnityEngine;
 public class Bollard : MonoBehaviour
 {
     PlayerManager playerManager = PlayerManager.Instance;
+    [SerializeField]
+    private int cost;
     
 
     private void Start()
@@ -15,7 +17,7 @@ public class Bollard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerManager.OpenBuyUI(gameObject);
+        playerManager.OpenBuyUI(gameObject, cost);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
