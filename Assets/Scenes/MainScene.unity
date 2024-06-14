@@ -1098,13 +1098,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome To Neighbourhood Nightmares
+  m_text: 'Welcome To Neighborhood Nightmares
 
 
     Your objective is to enter the
     houses and hunt ghosts scoring points allowing you to progress further in the
-    neighbourhood. Be the first to reach the end of the neighbourhood and get rid
-    of the King Ghost to win!'
+    neighborhood. Be the first to reach the end of the neighborhood and get rid of
+    the King Ghost to win!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

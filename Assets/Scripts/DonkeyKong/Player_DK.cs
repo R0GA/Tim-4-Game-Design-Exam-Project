@@ -17,6 +17,9 @@ public class Player_DK : MonoBehaviour
     private bool grounded;
     private bool climbing;
 
+    [SerializeField]
+    private GameObject WinUI;
+
     public float moveSpeed = 3f;
     public float jumpStrength = 4f;
 
@@ -130,12 +133,16 @@ public class Player_DK : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Objective"))
         {
-            FindObjectOfType<GameManager_DK>().LevelComplete();
-            enabled = false;
+            //FindObjectOfType<GameManager_DK>().LevelComplete();
+            //enabled = false;
+
+            Time.timeScale = 0f;
+            WinUI.gameObject.SetActive(true);
+
+
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
-           
             RestartGame();
         }
     }
